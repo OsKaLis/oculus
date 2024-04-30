@@ -155,3 +155,7 @@ base/migrations/
 
 # Ненужно картинки
 *.png
+*.session
+*.bat
+*.cmd
+*.vbs
