@@ -36,5 +36,5 @@ AUTO_LAUNCH_FILE = ("@echo off \n"
                     )
 # картинки имоции бота
 ANIME_FECE = {
-    'smile': 'anime_fece\\smile.png',
+    'smile': 'face_anime\\smile.png',
 }
