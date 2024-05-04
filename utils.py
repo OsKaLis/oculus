@@ -4,11 +4,8 @@ import socket
 from datetime import datetime as dt
 from sys import platform
 
-import cv2
-
 from configurations import (
     OS,
-    PICTURE_NAME,
     CMD_LAUNCH_OCULUS,
     AUTO_LAUNCH_FILE,
 )
@@ -29,16 +26,6 @@ def when_send_time() -> str:
 def current_cwordints() -> str:
     """Узнать текущии кординаты."""
     return 'Ш: 40.000, Д: 40.000'
-
-
-def take_picture_from_camera() -> None:
-    """Делает снимок с камеры ноутбука."""
-    camera = cv2.VideoCapture(0)
-    for i in range(30):
-        camera.read()
-    ret, frame = camera.read()
-    camera.release()
-    cv2.imwrite(PICTURE_NAME, frame)
 
 
 def create_file() -> None:

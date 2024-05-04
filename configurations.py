@@ -9,14 +9,18 @@ OS = {
     'linux': 'linux',
     'darwin': 'OSX'
 }
+# Дополнительные данные которые отправляются боту
 SENDING_TEXT = {
     'data_time': None,
     'the_сardinals': None,
+    'host': None,
 }
 USER_NAME = getpass.getuser()  # Имя хозяина
-PICTURE_NAME = 'temp.png'
+PICTURE_NAME = 'temp.png'  # Профиль человека который включает пк
 CMD_LAUNCH_OCULUS = 'oculus.cmd'
 CURRENT_DIRECTORY = os.getcwd()  # Директория где лежит програма
+FACE_USER = CURRENT_DIRECTORY + '\\face_user\\'  # Куда сохраняю картинки юзера
+HOST_MODEL = f'{USER_NAME}.yml'  # Модель хозяина
 DOWNTIME = 30  # Время простоя для задач
 # Параметры для отправки сообщения для БОТА
 api_id = int(config['API_ID'])
@@ -30,3 +34,7 @@ AUTO_LAUNCH_FILE = ("@echo off \n"
                     f"cd /d {CURRENT_DIRECTORY} \n"
                     "start /min pyw oculus.py"
                     )
+# картинки имоции бота
+ANIME_FECE = {
+    'smile': 'anime_fece\\smile.png',
+}

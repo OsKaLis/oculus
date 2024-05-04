@@ -159,3 +159,4 @@ base/migrations/
 *.bat
 *.cmd
 *.vbs
+*.yml

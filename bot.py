@@ -12,7 +12,7 @@ app = Client(
 )
 
 
-def bot_lik(parameters: list, filename: str):
+def bot_lik(parameters: list, filename: str) -> None:
     """Отправка на бот сообщение фото."""
     app.start()
     app.send_photo(kontakt, filename)
