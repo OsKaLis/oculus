@@ -13,8 +13,6 @@ from configurations import (
      DOWNTIME, ANIME_FECE, HOST_MODEL,
 )
 
-# Стоит добавить логи ?
-
 
 def main() -> None:
     """Основа програмы."""

@@ -22,6 +22,9 @@ CURRENT_DIRECTORY = os.getcwd()  # Директория где лежит про
 FACE_USER = CURRENT_DIRECTORY + '\\face_user\\'  # Куда сохраняю картинки юзера
 HOST_MODEL = f'{USER_NAME}.yml'  # Модель хозяина
 DOWNTIME = 30  # Время простоя для задач
+VIEWING_TIME = 60  # Время для определения кто квлючил пк
+NUMBER_FACE_IMAGES = 50  # Количество картинок для создание модли нейронки
+PERCENTAGE_TRUST = 50  # Процент доверия когда больше тогда доверияет
 # Параметры для отправки сообщения для БОТА
 api_id = int(config['API_ID'])
 api_hash = config['API_HASH']

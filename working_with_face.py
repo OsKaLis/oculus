@@ -2,14 +2,16 @@ import os
 import cv2
 import numpy as np
 from time import sleep
+from typing import Union
 
 from configurations import (
-    FACE_USER, HOST_MODEL, PICTURE_NAME
+    FACE_USER, HOST_MODEL, PICTURE_NAME, VIEWING_TIME,
+    NUMBER_FACE_IMAGES, PERCENTAGE_TRUST,
 )
 
 
 class WorkFace():
-    """."""
+    """Класс для работы с лицом включивший компютер."""
 
     face_user = 'face_user'
     recognizer = cv2.face.LBPHFaceRecognizer_create()
@@ -37,12 +39,12 @@ class WorkFace():
             k = cv2.waitKey(100) & 0xff
             if k == 27:
                 break
-            elif count >= 50:
+            elif count >= NUMBER_FACE_IMAGES:
                 break
         cam.release()
         cv2.destroyAllWindows()
 
-    def creating_host_model(self, ): 
+    def creating_host_model(self, ) -> None:
         """Создаю мдель хозяина."""
         imgfiles = [os.path.join(FACE_USER, f) for f in os.listdir(FACE_USER)]
         faces = []
@@ -58,7 +60,7 @@ class WorkFace():
         self.recognizer.write(HOST_MODEL)
         os.rmdir(self.face_user)
 
-    def definitions_host(self, ):
+    def definitions_host(self, ) -> Union[bool, int]:
         """Проверка на хозяина."""
         cam = cv2.VideoCapture(0)
         self.recognizer.read(HOST_MODEL)
@@ -82,15 +84,15 @@ class WorkFace():
                 )
                 if (confidence < 100):
                     probability_host = round(100 - confidence)
-                    if probability_host > 50:
+                    if probability_host > PERCENTAGE_TRUST:
                         host_recognized = True
                         break
-                    if attempts > 30:
+                    if attempts > VIEWING_TIME:
                         break
                 attempts += 1
                 sleep(1)
             k = cv2.waitKey(10) & 0xff
-            if host_recognized or attempts > 30 or k == 27:
+            if host_recognized or attempts > VIEWING_TIME or k == 27:
                 break
         cam.release()
         cv2.imwrite(PICTURE_NAME, img)
